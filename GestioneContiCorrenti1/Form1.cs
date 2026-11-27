@@ -21,7 +21,7 @@ namespace GestioneContiCorrenti1
         int[] Saldo = new int[] { 11534, -2345, 3451, 127, 45673, -13, 3452 };
         private void button1_Click(object sender, EventArgs e)
         {
-            string contoCercato = txt_Conto1.Text;
+            string contoCercato = txt_NumeroConto.Text;
             bool trovato = false;
 
             for (int i = 0; i < Conto.Length; i++)
@@ -58,7 +58,27 @@ namespace GestioneContiCorrenti1
                 lst_n3.Items.Add(Saldo[i]); 
             }
         }
-    
+
+        private void btn_n3_Click(object sender, EventArgs e)
+        {
+            string nomeCercato=txt_NomeCognome.Text;
+            bool trovato = false;
+
+            for (int i = 0; i < Nome.Length; i++)
+            {
+                if (Nome[i] == nomeCercato)
+                {
+                    lbl_Risultato2.Text = ("Conto " + Conto[i] + " Saldo " + Saldo[i] );
+                    trovato = true;
+                }
+            }
+
+            if (trovato == false)
+            {
+                lbl_Risultato2.Text = ("Nome e Cognome non trovato");
+            }
+
+        }
     }
     
 }
